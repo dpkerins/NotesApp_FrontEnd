@@ -1,3 +1,4 @@
+const fillNotePage = require('./fillNotePage');
 const hidePage = require('./hidePage');
 
 const addNewNote = (noteObject, idx) => {
@@ -11,6 +12,8 @@ const addNewNote = (noteObject, idx) => {
   newNoteEl.id = 'note-' + newId;
   main.appendChild(newNoteEl);
   newNoteEl.addEventListener('click', () => {
+    currentNoteIndex = idx;
+    fillNotePage(noteObject);
     hidePage(main);
     hidePage(individualpage);
   });
