@@ -3,10 +3,15 @@
 
   </head>
   <body>
-    <h1>Notes</h1>
-    <input type="text" name="new-note-title" id="new-note-title"placeholder="Note Title"><br><br>
-    <textarea name="new-note-content" id="new-note-content" cols="30" rows="10" placeholder="What should I put in my note..."></textarea><br><br>
-    <button id="new-note-button">Create Note</button><br><br>
+    <h1 id="icon">Notes</h1>
+    <div id='main-page' style="display:block">
+      <input type="text" name="new-note-title" id="new-note-title"placeholder="Note Title"><br><br>
+      <textarea name="new-note-content" id="new-note-content" cols="30" rows="10" placeholder="What should I put in my note..."></textarea><br><br>
+      <button id="new-note-button">Create Note</button><br><br>
+    </div>
+    <div id="individual-note-page" style="display:none">
+      <h1>THIS IS A SPECIAL PAGE</h1>
+    </div>
     <script src="bundle.js" type="text/javascript"></script>
   </body>
 </html>
