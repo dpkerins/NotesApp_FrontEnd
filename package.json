@@ -1,0 +1,20 @@
+{
+  "name": "notesapp_frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild index.js --bundle  --outfile=bundle.js --watch",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpkerins/NotesApp_FrontEnd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dpkerins/NotesApp_FrontEnd/issues"
+  },
+  "homepage": "https://github.com/dpkerins/NotesApp_FrontEnd#readme"
+}
