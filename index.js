@@ -1,8 +1,10 @@
 const addNewNote = require('./addNewNote');
 const hidePage = require('./hidePage');
 
+const notes = [];
 const mainPage = document.querySelector('#main-page');
 const individualNotePage = document.querySelector('#individual-note-page');
+let currentNote = '';
 
 fetch('http://localhost:3000/notes')
   .then(response => response.json())
@@ -16,12 +18,13 @@ fetch('http://localhost:3000/notes')
       mainPage.style.display = "block";
       individualNotePage.style.display = "none";
     })
-    document.querySelectorAll('.note').forEach((note) => {
-      note.addEventListener('click', () => {
-        hidePage(mainPage);
-        hidePage(individualNotePage);
-      });
-    })
+    // document.querySelectorAll('.note').forEach((note, idx) => {
+    //   note.addEventListener('click', () => {
+    //     console.log(note.id);
+    //     hidePage(mainPage);
+    //     hidePage(individualNotePage);
+    //   });
+    // })
   })
 
 

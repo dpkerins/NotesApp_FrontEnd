@@ -3,23 +3,6 @@
     return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   };
 
-  // addNewNote.js
-  var require_addNewNote = __commonJS({
-    "addNewNote.js"(exports, module) {
-      var addNewNote2 = (noteObject, idx) => {
-        const main = document.querySelector("#main-page");
-        const newNoteEl = document.createElement("div");
-        const newId = idx + 1;
-        const textWithLimit = `${noteObject.title}: ${noteObject.content}`.slice(0, 20);
-        newNoteEl.innerText = `${textWithLimit}...`;
-        newNoteEl.className = "note";
-        newNoteEl.id = "note-" + newId;
-        main.appendChild(newNoteEl);
-      };
-      module.exports = addNewNote2;
-    }
-  });
-
   // hidePage.js
   var require_hidePage = __commonJS({
     "hidePage.js"(exports, module) {
@@ -31,6 +14,29 @@
         }
       };
       module.exports = hidePage2;
+    }
+  });
+
+  // addNewNote.js
+  var require_addNewNote = __commonJS({
+    "addNewNote.js"(exports, module) {
+      var hidePage2 = require_hidePage();
+      var addNewNote2 = (noteObject, idx) => {
+        const main = document.querySelector("#main-page");
+        const individualpage = document.querySelector("#individual-note-page");
+        const newNoteEl = document.createElement("div");
+        const newId = idx + 1;
+        const textWithLimit = `${noteObject.title}: ${noteObject.content}`.slice(0, 20);
+        newNoteEl.innerText = `${textWithLimit}...`;
+        newNoteEl.className = "note";
+        newNoteEl.id = "note-" + newId;
+        main.appendChild(newNoteEl);
+        newNoteEl.addEventListener("click", () => {
+          hidePage2(main);
+          hidePage2(individualpage);
+        });
+      };
+      module.exports = addNewNote2;
     }
   });
 
@@ -47,12 +53,6 @@
     document.querySelector("#icon").addEventListener("click", () => {
       mainPage.style.display = "block";
       individualNotePage.style.display = "none";
-    });
-    document.querySelectorAll(".note").forEach((note) => {
-      note.addEventListener("click", () => {
-        hidePage(mainPage);
-        hidePage(individualNotePage);
-      });
     });
   });
   var noteButton = document.querySelector("#new-note-button");

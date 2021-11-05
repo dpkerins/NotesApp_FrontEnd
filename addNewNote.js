@@ -1,5 +1,8 @@
+const hidePage = require('./hidePage');
+
 const addNewNote = (noteObject, idx) => {
   const main = document.querySelector('#main-page');
+  const individualpage = document.querySelector('#individual-note-page');
   const newNoteEl = document.createElement('div');
   const newId = idx + 1;
   const textWithLimit = `${noteObject.title}: ${noteObject.content}`.slice(0, 20);
@@ -7,6 +10,10 @@ const addNewNote = (noteObject, idx) => {
   newNoteEl.className = 'note';
   newNoteEl.id = 'note-' + newId;
   main.appendChild(newNoteEl);
+  newNoteEl.addEventListener('click', () => {
+    hidePage(main);
+    hidePage(individualpage);
+  });
 }
 
 
